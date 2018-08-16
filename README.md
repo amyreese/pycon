@@ -2,9 +2,9 @@
 
 ## Thinking Outside the GIL
 
-As seen at PyCon US 2018 in Cleveland.
+As seen at PyCon US 2018 in Cleveland:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0kXaLh8Fz3k" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+> [![IMAGE ALT TEXT](http://img.youtube.com/vi/0kXaLh8Fz3k/0.jpg)](http://www.youtube.com/watch?v=0kXaLh8Fz3k "PyCon 2018 - John Reese - Thinking Outside the GIL with AsyncIO and Multiprocessing")
 
 ### Resources
 
