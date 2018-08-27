@@ -41,5 +41,7 @@ def translate_string(ln, cap, fn):
     .is_call()
     .filter(takes_string)
     .modify(translate_string)
+    .select_function("foo")
+    .add_argument("bar", 123)
     .diff()
 )
