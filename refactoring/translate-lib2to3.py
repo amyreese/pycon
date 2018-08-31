@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # Copyright 2018 John Reese
 # Licensed under the MIT License
 
@@ -66,7 +66,7 @@ class SimpleRefactor(StdoutRefactoringTool):
         return fixers, ()
 
     def __init__(self, *fixers, **kwargs):
-        super().__init__(fixers, {"print_function": True}, [], True, True, **kwargs)
+        super(SimpleRefactor, self).__init__(fixers, {"print_function": True}, [], True, True, **kwargs)
 
 
 if __name__ == "__main__":
