@@ -12,6 +12,7 @@ As seen at PyCon Australia 2018 in Sydney:
 * [Example code](https://github.com/jreese/pycon/tree/master/refactoring)
 * [lib2to3](https://github.com/python/cpython/tree/master/Lib/lib2to3)
 * [fissix](https://github.com/jreese/fissix)
+* [Slide deck](https://speakerdeck.com/jreese/refactoring-code-with-the-standard-library)
 
 ## Thinking Outside the GIL
 
@@ -22,3 +23,4 @@ As seen at PyCon US 2018 in Cleveland:
 ### Resources
 
 * [aiomultiprocess](https://github.com/jreese/aiomultiprocess)
+* [Slide deck](https://speakerdeck.com/jreese/thinking-outside-the-gil-2)
