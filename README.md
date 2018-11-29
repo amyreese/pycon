@@ -1,10 +1,11 @@
 # John Reese's Python Talks and Examples
 
+
 ## Refactoring Code with the Standard Library
 
-As seen at PyCon Australia 2018 in Sydney:
+As seen at North Bay Python 2018 in Petaluma:
 
-> [![Refactoring Code with the Standard Library](http://img.youtube.com/vi/9USGh4Uy-xQ/0.jpg)](https://youtu.be/9USGh4Uy-xQ "PyCon Australia 2018 - John Reese - Refactoring Code with the Standard Library")
+> [![Refactoring Code with the Standard Library](http://img.youtube.com/vi/KxWsM9Kh1FY/0.jpg)](https://youtu.be/KxWsM9Kh1FY "North Bay Python 2018 - John Reese - Refactoring Code with the Standard Library")
 
 ### Resources
 
@@ -12,6 +13,12 @@ As seen at PyCon Australia 2018 in Sydney:
 * [Example code](https://github.com/jreese/pycon/tree/master/refactoring)
 * [lib2to3](https://github.com/python/cpython/tree/master/Lib/lib2to3)
 * [fissix](https://github.com/jreese/fissix)
+* [Slide deck](https://speakerdeck.com/jreese/refactoring-code-with-the-standard-library-nbpy-2018)
+
+As seen at PyCon Australia 2018 in Sydney:
+
+> [![Refactoring Code with the Standard Library](http://img.youtube.com/vi/9USGh4Uy-xQ/0.jpg)](https://youtu.be/9USGh4Uy-xQ "PyCon Australia 2018 - John Reese - Refactoring Code with the Standard Library")
+
 * [Slide deck](https://speakerdeck.com/jreese/refactoring-code-with-the-standard-library)
 
 ## Thinking Outside the GIL
