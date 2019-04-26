@@ -1,0 +1,13 @@
+aiofiles
+aiohttp
+aioitertools
+aiomultiprocess
+aiomysql
+aiopg
+aioslack
+aiosqlite
+aiounittest
+click
+ipython
+trio
+uvloop
