@@ -1,5 +1,12 @@
 # John Reese's Python Talks and Examples
 
+## Friendly and Modern AsyncIO
+
+Workshop from Pycon US 2019 in Cleveland:
+
+> ![[Title Slide](https://speakerdeck.com/jreese/friendly-and-modern-asyncio)](https://raw.githubusercontent.com/jreese/pycon/master/friendly-asyncio/thumbnail.jpg)
+
+* [Slide deck](https://speakerdeck.com/jreese/friendly-and-modern-asyncio)
 
 ## Refactoring Code with the Standard Library
 
