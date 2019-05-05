@@ -8,6 +8,7 @@ Workshop from Pycon US 2019 in Cleveland:
 
 * [Example code](https://github.com/jreese/pycon/tree/master/friendly-asyncio)
 * [Slide deck](https://speakerdeck.com/jreese/friendly-and-modern-asyncio)
+* [Slide deck (including speaker notes)](https://www.dropbox.com/s/m3118hs1vf9cyfx/Friendly%20and%20Modern%20AsyncIO%20with%20notes.pdf?dl=0)
 
 ## Refactoring Code with the Standard Library
 

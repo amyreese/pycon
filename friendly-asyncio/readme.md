@@ -6,7 +6,15 @@ on top of popular open source libraries.
 
 ![[Title Slide](https://speakerdeck.com/jreese/friendly-and-modern-asyncio)](https://raw.githubusercontent.com/jreese/pycon/master/friendly-asyncio/thumbnail.jpg)
 
-AsyncIO is a powerful mechanism for building high-performance services, but it has long been thought of as “too complicated”. But it’s easier than you might think, and with Python 3.7, it’s easier than ever to get started using just the standard library! We'll cover the basics of AsyncIO, take a look at the latest features in 3.7, build friendly and expressive APIs, analyze best practices for third-party libraries, and discuss integrating async code with synchronous libraries and codebases.
+* [Slide deck (including speaker notes)](https://www.dropbox.com/s/m3118hs1vf9cyfx/Friendly%20and%20Modern%20AsyncIO%20with%20notes.pdf?dl=0)
+
+AsyncIO is a powerful mechanism for building high-performance services,
+but it has long been thought of as “too complicated”. But it’s easier
+than you might think, and with Python 3.7, it’s easier than ever to get
+started using just the standard library! We'll cover the basics of AsyncIO,
+take a look at the latest features in 3.7, build friendly and expressive
+APIs, analyze best practices for third-party libraries, and discuss
+integrating async code with synchronous libraries and codebases.
 
 
 ## Setup
