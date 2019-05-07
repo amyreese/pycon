@@ -4,11 +4,22 @@
 
 Workshop from Pycon US 2019 in Cleveland:
 
-> ![[Title Slide](https://speakerdeck.com/jreese/friendly-and-modern-asyncio)](https://raw.githubusercontent.com/jreese/pycon/master/friendly-asyncio/thumbnail.jpg)
+> ![[Title Slide](https://www.dropbox.com/s/m3118hs1vf9cyfx/Friendly%20and%20Modern%20AsyncIO%20with%20notes.pdf?dl=0)](https://raw.githubusercontent.com/jreese/pycon/master/thumbnails/friendly-asyncio.jpg)
 
 * [Example code](https://github.com/jreese/pycon/tree/master/friendly-asyncio)
 * [Slide deck](https://speakerdeck.com/jreese/friendly-and-modern-asyncio)
 * [Slide deck (including speaker notes)](https://www.dropbox.com/s/m3118hs1vf9cyfx/Friendly%20and%20Modern%20AsyncIO%20with%20notes.pdf?dl=0)
+
+
+## Taming the Wild West of Python Packaging
+
+Lightning talk from Maintainer Summit at Pycon US 2019:
+
+> ![[Title Slide](https://www.dropbox.com/s/6sgkqq0bgw98xg8/Taming%20the%20Wild%20West%20of%20Python%20Packaging%20with%20notes.pdf?dl=0)](https://raw.githubusercontent.com/jreese/pycon/master/thumbnails/taming-the-wild-west.jpg)
+
+* [Slide deck](https://speakerdeck.com/jreese/taming-the-wild-west-of-python-packaging)
+* [Slide deck (including speaker notes)](https://www.dropbox.com/s/6sgkqq0bgw98xg8/Taming%20the%20Wild%20West%20of%20Python%20Packaging%20with%20notes.pdf?dl=0)
+
 
 ## Refactoring Code with the Standard Library
 
@@ -29,6 +40,7 @@ As seen at PyCon Australia 2018 in Sydney:
 > [![Refactoring Code with the Standard Library](http://img.youtube.com/vi/9USGh4Uy-xQ/0.jpg)](https://youtu.be/9USGh4Uy-xQ "PyCon Australia 2018 - John Reese - Refactoring Code with the Standard Library")
 
 * [Slide deck](https://speakerdeck.com/jreese/refactoring-code-with-the-standard-library)
+
 
 ## Thinking Outside the GIL
 
