@@ -1,0 +1,19 @@
+
+
+square:
+  6           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                0 (x)
+              4 BINARY_MULTIPLY
+              6 RETURN_VALUE
+main:
+ 10           0 LOAD_GLOBAL              0 (square)
+              2 LOAD_CONST               1 (4)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               0 (x)
+ 11           8 LOAD_GLOBAL              1 (print)
+             10 LOAD_FAST                0 (x)
+             12 CALL_FUNCTION            1
+             14 POP_TOP
+             16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+

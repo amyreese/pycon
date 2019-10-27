@@ -1,0 +1,1265 @@
+>>> from dis import dis
+>>> import aioitertools
+>>> dis(aioitertools)
+
+Disassembly of accumulate:
+ 57           0 LOAD_GLOBAL              0 (iter)
+              2 LOAD_FAST                0 (itr)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               0 (itr)
+
+ 58           8 SETUP_EXCEPT            18 (to 28)
+
+ 59          10 LOAD_GLOBAL              1 (next)
+             12 LOAD_FAST                0 (itr)
+             14 CALL_FUNCTION            1
+             16 GET_AWAITABLE
+             18 LOAD_CONST               1 (None)
+             20 YIELD_FROM
+             22 STORE_FAST               2 (total)
+             24 POP_BLOCK
+             26 JUMP_FORWARD            20 (to 48)
+
+ 60     >>   28 DUP_TOP
+             30 LOAD_GLOBAL              2 (AnyStop)
+             32 COMPARE_OP              10 (exception match)
+             34 POP_JUMP_IF_FALSE       46
+             36 POP_TOP
+             38 POP_TOP
+             40 POP_TOP
+
+ 61          42 LOAD_CONST               1 (None)
+             44 RETURN_VALUE
+        >>   46 END_FINALLY
+
+ 63     >>   48 LOAD_FAST                2 (total)
+             50 YIELD_VALUE
+             52 POP_TOP
+
+ 64          54 SETUP_LOOP              72 (to 128)
+             56 LOAD_FAST                0 (itr)
+             58 GET_AITER
+             60 LOAD_CONST               1 (None)
+             62 YIELD_FROM
+        >>   64 SETUP_EXCEPT            12 (to 78)
+             66 GET_ANEXT
+             68 LOAD_CONST               1 (None)
+             70 YIELD_FROM
+             72 STORE_FAST               3 (item)
+             74 POP_BLOCK
+             76 JUMP_FORWARD            10 (to 88)
+        >>   78 DUP_TOP
+             80 LOAD_GLOBAL              3 (StopAsyncIteration)
+             82 COMPARE_OP              10 (exception match)
+             84 POP_JUMP_IF_TRUE       116
+             86 END_FINALLY
+
+ 65     >>   88 LOAD_GLOBAL              4 (maybe_await)
+             90 LOAD_FAST                1 (func)
+             92 LOAD_FAST                2 (total)
+             94 LOAD_FAST                3 (item)
+             96 CALL_FUNCTION            2
+             98 CALL_FUNCTION            1
+            100 GET_AWAITABLE
+            102 LOAD_CONST               1 (None)
+            104 YIELD_FROM
+            106 STORE_FAST               2 (total)
+
+ 66         108 LOAD_FAST                2 (total)
+            110 YIELD_VALUE
+            112 POP_TOP
+            114 JUMP_ABSOLUTE           64
+        >>  116 POP_TOP
+            118 POP_TOP
+            120 POP_TOP
+            122 POP_EXCEPT
+            124 POP_TOP
+            126 POP_BLOCK
+        >>  128 LOAD_CONST               1 (None)
+            130 RETURN_VALUE
+
+Disassembly of combinations:
+111           0 LOAD_GLOBAL              0 (list)
+              2 LOAD_FAST                0 (itr)
+              4 CALL_FUNCTION            1
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 STORE_FAST               2 (pool)
+
+112          14 SETUP_LOOP              26 (to 42)
+             16 LOAD_GLOBAL              1 (itertools)
+             18 LOAD_ATTR                2 (combinations)
+             20 LOAD_FAST                2 (pool)
+             22 LOAD_FAST                1 (r)
+             24 CALL_FUNCTION            2
+             26 GET_ITER
+        >>   28 FOR_ITER                10 (to 40)
+             30 STORE_FAST               3 (value)
+
+113          32 LOAD_FAST                3 (value)
+             34 YIELD_VALUE
+             36 POP_TOP
+             38 JUMP_ABSOLUTE           28
+        >>   40 POP_BLOCK
+        >>   42 LOAD_CONST               1 (None)
+             44 RETURN_VALUE
+
+Disassembly of combinations_with_replacement:
+131           0 LOAD_GLOBAL              0 (list)
+              2 LOAD_FAST                0 (itr)
+              4 CALL_FUNCTION            1
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 STORE_FAST               2 (pool)
+
+132          14 SETUP_LOOP              26 (to 42)
+             16 LOAD_GLOBAL              1 (itertools)
+             18 LOAD_ATTR                2 (combinations_with_replacement)
+             20 LOAD_FAST                2 (pool)
+             22 LOAD_FAST                1 (r)
+             24 CALL_FUNCTION            2
+             26 GET_ITER
+        >>   28 FOR_ITER                10 (to 40)
+             30 STORE_FAST               3 (value)
+
+133          32 LOAD_FAST                3 (value)
+             34 YIELD_VALUE
+             36 POP_TOP
+             38 JUMP_ABSOLUTE           28
+        >>   40 POP_BLOCK
+        >>   42 LOAD_CONST               1 (None)
+             44 RETURN_VALUE
+
+Disassembly of compress:
+149           0 SETUP_LOOP              66 (to 68)
+              2 LOAD_GLOBAL              0 (zip)
+              4 LOAD_FAST                0 (itr)
+              6 LOAD_FAST                1 (selectors)
+              8 CALL_FUNCTION            2
+             10 GET_AITER
+             12 LOAD_CONST               1 (None)
+             14 YIELD_FROM
+        >>   16 SETUP_EXCEPT            16 (to 34)
+             18 GET_ANEXT
+             20 LOAD_CONST               1 (None)
+             22 YIELD_FROM
+             24 UNPACK_SEQUENCE          2
+             26 STORE_FAST               2 (value)
+             28 STORE_FAST               3 (selector)
+             30 POP_BLOCK
+             32 JUMP_FORWARD            10 (to 44)
+        >>   34 DUP_TOP
+             36 LOAD_GLOBAL              1 (StopAsyncIteration)
+             38 COMPARE_OP              10 (exception match)
+             40 POP_JUMP_IF_TRUE        56
+             42 END_FINALLY
+
+150     >>   44 LOAD_FAST                3 (selector)
+             46 POP_JUMP_IF_FALSE       16
+
+151          48 LOAD_FAST                2 (value)
+             50 YIELD_VALUE
+             52 POP_TOP
+             54 JUMP_ABSOLUTE           16
+        >>   56 POP_TOP
+             58 POP_TOP
+             60 POP_TOP
+             62 POP_EXCEPT
+             64 POP_TOP
+             66 POP_BLOCK
+        >>   68 LOAD_CONST               1 (None)
+             70 RETURN_VALUE
+
+Disassembly of count:
+165           0 LOAD_FAST                0 (start)
+              2 STORE_FAST               2 (value)
+
+166           4 SETUP_LOOP              18 (to 24)
+
+167     >>    6 LOAD_FAST                2 (value)
+              8 YIELD_VALUE
+             10 POP_TOP
+
+168          12 LOAD_FAST                2 (value)
+             14 LOAD_FAST                1 (step)
+             16 INPLACE_ADD
+             18 STORE_FAST               2 (value)
+             20 JUMP_ABSOLUTE            6
+             22 POP_BLOCK
+        >>   24 LOAD_CONST               1 (None)
+             26 RETURN_VALUE
+
+Disassembly of cycle:
+184           0 BUILD_LIST               0
+              2 STORE_FAST               1 (items)
+
+185           4 SETUP_LOOP              66 (to 72)
+              6 LOAD_GLOBAL              0 (iter)
+              8 LOAD_FAST                0 (itr)
+             10 CALL_FUNCTION            1
+             12 GET_AITER
+             14 LOAD_CONST               1 (None)
+             16 YIELD_FROM
+        >>   18 SETUP_EXCEPT            12 (to 32)
+             20 GET_ANEXT
+             22 LOAD_CONST               1 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               2 (item)
+             28 POP_BLOCK
+             30 JUMP_FORWARD            10 (to 42)
+        >>   32 DUP_TOP
+             34 LOAD_GLOBAL              1 (StopAsyncIteration)
+             36 COMPARE_OP              10 (exception match)
+             38 POP_JUMP_IF_TRUE        60
+             40 END_FINALLY
+
+186     >>   42 LOAD_FAST                2 (item)
+             44 YIELD_VALUE
+             46 POP_TOP
+
+187          48 LOAD_FAST                1 (items)
+             50 LOAD_ATTR                2 (append)
+             52 LOAD_FAST                2 (item)
+             54 CALL_FUNCTION            1
+             56 POP_TOP
+             58 JUMP_ABSOLUTE           18
+        >>   60 POP_TOP
+             62 POP_TOP
+             64 POP_TOP
+             66 POP_EXCEPT
+             68 POP_TOP
+             70 POP_BLOCK
+
+189     >>   72 SETUP_LOOP              24 (to 98)
+
+190     >>   74 SETUP_LOOP              18 (to 94)
+             76 LOAD_FAST                1 (items)
+             78 GET_ITER
+        >>   80 FOR_ITER                10 (to 92)
+             82 STORE_FAST               2 (item)
+
+191          84 LOAD_FAST                2 (item)
+             86 YIELD_VALUE
+             88 POP_TOP
+             90 JUMP_ABSOLUTE           80
+        >>   92 POP_BLOCK
+        >>   94 JUMP_ABSOLUTE           74
+             96 POP_BLOCK
+        >>   98 LOAD_CONST               1 (None)
+            100 RETURN_VALUE
+
+Disassembly of dropwhile:
+211           0 LOAD_GLOBAL              0 (iter)
+              2 LOAD_FAST                1 (iterable)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               2 (itr)
+
+212           8 SETUP_LOOP              72 (to 82)
+             10 LOAD_FAST                2 (itr)
+             12 GET_AITER
+             14 LOAD_CONST               1 (None)
+             16 YIELD_FROM
+        >>   18 SETUP_EXCEPT            12 (to 32)
+             20 GET_ANEXT
+             22 LOAD_CONST               1 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               3 (item)
+             28 POP_BLOCK
+             30 JUMP_FORWARD            10 (to 42)
+        >>   32 DUP_TOP
+             34 LOAD_GLOBAL              1 (StopAsyncIteration)
+             36 COMPARE_OP              10 (exception match)
+             38 POP_JUMP_IF_TRUE        70
+             40 END_FINALLY
+
+213     >>   42 LOAD_GLOBAL              2 (maybe_await)
+             44 LOAD_FAST                0 (predicate)
+             46 LOAD_FAST                3 (item)
+             48 CALL_FUNCTION            1
+             50 CALL_FUNCTION            1
+             52 GET_AWAITABLE
+             54 LOAD_CONST               1 (None)
+             56 YIELD_FROM
+             58 POP_JUMP_IF_TRUE        18
+
+214          60 LOAD_FAST                3 (item)
+             62 YIELD_VALUE
+             64 POP_TOP
+
+215          66 BREAK_LOOP
+             68 JUMP_ABSOLUTE           18
+        >>   70 POP_TOP
+             72 POP_TOP
+             74 POP_TOP
+             76 POP_EXCEPT
+             78 POP_TOP
+             80 POP_BLOCK
+
+216     >>   82 SETUP_LOOP              52 (to 136)
+             84 LOAD_FAST                2 (itr)
+             86 GET_AITER
+             88 LOAD_CONST               1 (None)
+             90 YIELD_FROM
+        >>   92 SETUP_EXCEPT            12 (to 106)
+             94 GET_ANEXT
+             96 LOAD_CONST               1 (None)
+             98 YIELD_FROM
+            100 STORE_FAST               3 (item)
+            102 POP_BLOCK
+            104 JUMP_FORWARD            10 (to 116)
+        >>  106 DUP_TOP
+            108 LOAD_GLOBAL              1 (StopAsyncIteration)
+            110 COMPARE_OP              10 (exception match)
+            112 POP_JUMP_IF_TRUE       124
+            114 END_FINALLY
+
+217     >>  116 LOAD_FAST                3 (item)
+            118 YIELD_VALUE
+            120 POP_TOP
+            122 JUMP_ABSOLUTE           92
+        >>  124 POP_TOP
+            126 POP_TOP
+            128 POP_TOP
+            130 POP_EXCEPT
+            132 POP_TOP
+            134 POP_BLOCK
+        >>  136 LOAD_CONST               1 (None)
+            138 RETURN_VALUE
+
+Disassembly of enumerate:
+120           0 LOAD_FAST                1 (start)
+              2 STORE_FAST               2 (index)
+
+121           4 SETUP_LOOP              68 (to 74)
+              6 LOAD_GLOBAL              0 (iter)
+              8 LOAD_FAST                0 (itr)
+             10 CALL_FUNCTION            1
+             12 GET_AITER
+             14 LOAD_CONST               1 (None)
+             16 YIELD_FROM
+        >>   18 SETUP_EXCEPT            12 (to 32)
+             20 GET_ANEXT
+             22 LOAD_CONST               1 (None)
+             24 YIELD_FROM
+             26 STORE_FAST               3 (item)
+             28 POP_BLOCK
+             30 JUMP_FORWARD            10 (to 42)
+        >>   32 DUP_TOP
+             34 LOAD_GLOBAL              1 (StopAsyncIteration)
+             36 COMPARE_OP              10 (exception match)
+             38 POP_JUMP_IF_TRUE        62
+             40 END_FINALLY
+
+122     >>   42 LOAD_FAST                2 (index)
+             44 LOAD_FAST                3 (item)
+             46 BUILD_TUPLE              2
+             48 YIELD_VALUE
+             50 POP_TOP
+
+123          52 LOAD_FAST                2 (index)
+             54 LOAD_CONST               2 (1)
+             56 INPLACE_ADD
+             58 STORE_FAST               2 (index)
+             60 JUMP_ABSOLUTE           18
+        >>   62 POP_TOP
+             64 POP_TOP
+             66 POP_TOP
+             68 POP_EXCEPT
+             70 POP_TOP
+             72 POP_BLOCK
+        >>   74 LOAD_CONST               1 (None)
+             76 RETURN_VALUE
+
+Disassembly of filterfalse:
+237           0 SETUP_LOOP              74 (to 76)
+              2 LOAD_GLOBAL              0 (iter)
+              4 LOAD_FAST                1 (iterable)
+              6 CALL_FUNCTION            1
+              8 GET_AITER
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+        >>   14 SETUP_EXCEPT            12 (to 28)
+             16 GET_ANEXT
+             18 LOAD_CONST               1 (None)
+             20 YIELD_FROM
+             22 STORE_FAST               2 (item)
+             24 POP_BLOCK
+             26 JUMP_FORWARD            10 (to 38)
+        >>   28 DUP_TOP
+             30 LOAD_GLOBAL              1 (StopAsyncIteration)
+             32 COMPARE_OP              10 (exception match)
+             34 POP_JUMP_IF_TRUE        64
+             36 END_FINALLY
+
+238     >>   38 LOAD_GLOBAL              2 (maybe_await)
+             40 LOAD_FAST                0 (predicate)
+             42 LOAD_FAST                2 (item)
+             44 CALL_FUNCTION            1
+             46 CALL_FUNCTION            1
+             48 GET_AWAITABLE
+             50 LOAD_CONST               1 (None)
+             52 YIELD_FROM
+             54 POP_JUMP_IF_TRUE        14
+
+239          56 LOAD_FAST                2 (item)
+             58 YIELD_VALUE
+             60 POP_TOP
+             62 JUMP_ABSOLUTE           14
+        >>   64 POP_TOP
+             66 POP_TOP
+             68 POP_TOP
+             70 POP_EXCEPT
+             72 POP_TOP
+             74 POP_BLOCK
+        >>   76 LOAD_CONST               1 (None)
+             78 RETURN_VALUE
+
+Disassembly of groupby:
+276           0 LOAD_FAST                1 (key)
+              2 LOAD_CONST               1 (None)
+              4 COMPARE_OP               8 (is)
+              6 POP_JUMP_IF_FALSE       16
+
+277           8 LOAD_CONST               2 (<code object <lambda> at 0x10c345db0, file "/Users/jreese/workspace/aioitertools/aioitertools/itertools.py", line 277>)
+             10 LOAD_CONST               3 ('groupby.<locals>.<lambda>')
+             12 MAKE_FUNCTION            0
+             14 STORE_FAST               1 (key)
+
+279     >>   16 BUILD_LIST               0
+             18 STORE_FAST               2 (grouping)
+
+281          20 LOAD_GLOBAL              0 (iter)
+             22 LOAD_FAST                0 (itr)
+             24 CALL_FUNCTION            1
+             26 STORE_FAST               3 (it)
+
+282          28 LOAD_GLOBAL              1 (next)
+             30 LOAD_FAST                3 (it)
+             32 CALL_FUNCTION            1
+             34 GET_AWAITABLE
+             36 LOAD_CONST               1 (None)
+             38 YIELD_FROM
+             40 STORE_FAST               4 (item)
+
+283          42 LOAD_FAST                4 (item)
+             44 BUILD_LIST               1
+             46 STORE_FAST               2 (grouping)
+
+285          48 LOAD_GLOBAL              2 (maybe_await)
+             50 LOAD_FAST                1 (key)
+             52 LOAD_FAST                4 (item)
+             54 CALL_FUNCTION            1
+             56 CALL_FUNCTION            1
+             58 GET_AWAITABLE
+             60 LOAD_CONST               1 (None)
+             62 YIELD_FROM
+             64 STORE_FAST               5 (j)
+
+286          66 SETUP_LOOP             104 (to 172)
+             68 LOAD_FAST                3 (it)
+             70 GET_AITER
+             72 LOAD_CONST               1 (None)
+             74 YIELD_FROM
+        >>   76 SETUP_EXCEPT            12 (to 90)
+             78 GET_ANEXT
+             80 LOAD_CONST               1 (None)
+             82 YIELD_FROM
+             84 STORE_FAST               4 (item)
+             86 POP_BLOCK
+             88 JUMP_FORWARD            10 (to 100)
+        >>   90 DUP_TOP
+             92 LOAD_GLOBAL              3 (StopAsyncIteration)
+             94 COMPARE_OP              10 (exception match)
+             96 POP_JUMP_IF_TRUE       160
+             98 END_FINALLY
+
+287     >>  100 LOAD_GLOBAL              2 (maybe_await)
+            102 LOAD_FAST                1 (key)
+            104 LOAD_FAST                4 (item)
+            106 CALL_FUNCTION            1
+            108 CALL_FUNCTION            1
+            110 GET_AWAITABLE
+            112 LOAD_CONST               1 (None)
+            114 YIELD_FROM
+            116 STORE_FAST               6 (k)
+
+288         118 LOAD_FAST                6 (k)
+            120 LOAD_FAST                5 (j)
+            122 COMPARE_OP               3 (!=)
+            124 POP_JUMP_IF_FALSE      144
+
+289         126 LOAD_FAST                5 (j)
+            128 LOAD_FAST                2 (grouping)
+            130 BUILD_TUPLE              2
+            132 YIELD_VALUE
+            134 POP_TOP
+
+290         136 LOAD_FAST                4 (item)
+            138 BUILD_LIST               1
+            140 STORE_FAST               2 (grouping)
+            142 JUMP_FORWARD            10 (to 154)
+
+292     >>  144 LOAD_FAST                2 (grouping)
+            146 LOAD_ATTR                4 (append)
+            148 LOAD_FAST                4 (item)
+            150 CALL_FUNCTION            1
+            152 POP_TOP
+
+293     >>  154 LOAD_FAST                6 (k)
+            156 STORE_FAST               5 (j)
+            158 JUMP_ABSOLUTE           76
+        >>  160 POP_TOP
+            162 POP_TOP
+            164 POP_TOP
+            166 POP_EXCEPT
+            168 POP_TOP
+            170 POP_BLOCK
+
+295     >>  172 LOAD_FAST                5 (j)
+            174 LOAD_FAST                2 (grouping)
+            176 BUILD_TUPLE              2
+            178 YIELD_VALUE
+            180 POP_TOP
+            182 LOAD_CONST               1 (None)
+            184 RETURN_VALUE
+
+Disassembly of islice:
+338           0 LOAD_CONST               1 (0)
+              2 STORE_FAST               2 (start)
+
+339           4 LOAD_CONST               2 (1)
+              6 STORE_FAST               3 (step)
+
+340           8 LOAD_FAST                1 (args)
+             10 POP_JUMP_IF_TRUE        20
+
+341          12 LOAD_GLOBAL              0 (ValueError)
+             14 LOAD_CONST               3 ('must pass stop index')
+             16 CALL_FUNCTION            1
+             18 RAISE_VARARGS            1
+
+342     >>   20 LOAD_GLOBAL              1 (len)
+             22 LOAD_FAST                1 (args)
+             24 CALL_FUNCTION            1
+             26 LOAD_CONST               2 (1)
+             28 COMPARE_OP               2 (==)
+             30 POP_JUMP_IF_FALSE       40
+
+343          32 LOAD_FAST                1 (args)
+             34 UNPACK_SEQUENCE          1
+             36 STORE_FAST               4 (stop)
+             38 JUMP_FORWARD            54 (to 94)
+
+344     >>   40 LOAD_GLOBAL              1 (len)
+             42 LOAD_FAST                1 (args)
+             44 CALL_FUNCTION            1
+             46 LOAD_CONST               4 (2)
+             48 COMPARE_OP               2 (==)
+             50 POP_JUMP_IF_FALSE       62
+
+345          52 LOAD_FAST                1 (args)
+             54 UNPACK_SEQUENCE          2
+             56 STORE_FAST               2 (start)
+             58 STORE_FAST               4 (stop)
+             60 JUMP_FORWARD            32 (to 94)
+
+346     >>   62 LOAD_GLOBAL              1 (len)
+             64 LOAD_FAST                1 (args)
+             66 CALL_FUNCTION            1
+             68 LOAD_CONST               5 (3)
+             70 COMPARE_OP               2 (==)
+             72 POP_JUMP_IF_FALSE       86
+
+347          74 LOAD_FAST                1 (args)
+             76 UNPACK_SEQUENCE          3
+             78 STORE_FAST               2 (start)
+             80 STORE_FAST               4 (stop)
+             82 STORE_FAST               3 (step)
+             84 JUMP_FORWARD             8 (to 94)
+
+349     >>   86 LOAD_GLOBAL              0 (ValueError)
+             88 LOAD_CONST               6 ('too many arguments given')
+             90 CALL_FUNCTION            1
+             92 RAISE_VARARGS            1
+
+350     >>   94 LOAD_FAST                2 (start)
+             96 LOAD_CONST               1 (0)
+             98 COMPARE_OP               5 (>=)
+            100 POP_JUMP_IF_FALSE      126
+            102 LOAD_FAST                4 (stop)
+            104 LOAD_CONST               7 (None)
+            106 COMPARE_OP               8 (is)
+            108 POP_JUMP_IF_TRUE       118
+            110 LOAD_FAST                4 (stop)
+            112 LOAD_CONST               1 (0)
+            114 COMPARE_OP               5 (>=)
+            116 POP_JUMP_IF_FALSE      126
+        >>  118 LOAD_FAST                3 (step)
+            120 LOAD_CONST               1 (0)
+            122 COMPARE_OP               5 (>=)
+            124 POP_JUMP_IF_TRUE       130
+        >>  126 LOAD_GLOBAL              2 (AssertionError)
+            128 RAISE_VARARGS            1
+
+351     >>  130 LOAD_GLOBAL              3 (max)
+            132 LOAD_CONST               2 (1)
+            134 LOAD_FAST                3 (step)
+            136 CALL_FUNCTION            2
+            138 STORE_FAST               3 (step)
+
+353         140 LOAD_FAST                4 (stop)
+            142 LOAD_CONST               1 (0)
+            144 COMPARE_OP               2 (==)
+            146 POP_JUMP_IF_FALSE      152
+
+354         148 LOAD_CONST               7 (None)
+            150 RETURN_VALUE
+
+356     >>  152 SETUP_LOOP             106 (to 260)
+            154 LOAD_GLOBAL              4 (enumerate)
+            156 LOAD_FAST                0 (itr)
+            158 CALL_FUNCTION            1
+            160 GET_AITER
+            162 LOAD_CONST               7 (None)
+            164 YIELD_FROM
+        >>  166 SETUP_EXCEPT            16 (to 184)
+            168 GET_ANEXT
+            170 LOAD_CONST               7 (None)
+            172 YIELD_FROM
+            174 UNPACK_SEQUENCE          2
+            176 STORE_FAST               5 (index)
+            178 STORE_FAST               6 (item)
+            180 POP_BLOCK
+            182 JUMP_FORWARD            10 (to 194)
+        >>  184 DUP_TOP
+            186 LOAD_GLOBAL              5 (StopAsyncIteration)
+            188 COMPARE_OP              10 (exception match)
+            190 POP_JUMP_IF_TRUE       248
+            192 END_FINALLY
+
+357     >>  194 LOAD_FAST                5 (index)
+            196 LOAD_FAST                2 (start)
+            198 COMPARE_OP               5 (>=)
+            200 POP_JUMP_IF_FALSE      224
+            202 LOAD_FAST                5 (index)
+            204 LOAD_FAST                2 (start)
+            206 BINARY_SUBTRACT
+            208 LOAD_FAST                3 (step)
+            210 BINARY_MODULO
+            212 LOAD_CONST               1 (0)
+            214 COMPARE_OP               2 (==)
+            216 POP_JUMP_IF_FALSE      224
+
+358         218 LOAD_FAST                6 (item)
+            220 YIELD_VALUE
+            222 POP_TOP
+
+359     >>  224 LOAD_FAST                4 (stop)
+            226 LOAD_CONST               7 (None)
+            228 COMPARE_OP               9 (is not)
+            230 POP_JUMP_IF_FALSE      166
+            232 LOAD_FAST                5 (index)
+            234 LOAD_CONST               2 (1)
+            236 BINARY_ADD
+            238 LOAD_FAST                4 (stop)
+            240 COMPARE_OP               5 (>=)
+            242 POP_JUMP_IF_FALSE      166
+
+360         244 BREAK_LOOP
+            246 JUMP_ABSOLUTE          166
+        >>  248 POP_TOP
+            250 POP_TOP
+            252 POP_TOP
+            254 POP_EXCEPT
+            256 POP_TOP
+            258 POP_BLOCK
+        >>  260 LOAD_CONST               7 (None)
+            262 RETURN_VALUE
+
+Disassembly of iter:
+ 48           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_DEREF               0 (itr)
+              4 LOAD_GLOBAL              1 (AsyncIterator)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       14
+
+ 49          10 LOAD_DEREF               0 (itr)
+             12 RETURN_VALUE
+
+ 51     >>   14 LOAD_GLOBAL              0 (isinstance)
+             16 LOAD_DEREF               0 (itr)
+             18 LOAD_GLOBAL              2 (AsyncIterable)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       32
+
+ 52          24 LOAD_DEREF               0 (itr)
+             26 LOAD_ATTR                3 (__aiter__)
+             28 CALL_FUNCTION            0
+             30 RETURN_VALUE
+
+ 54     >>   32 LOAD_GLOBAL              1 (AsyncIterator)
+             34 LOAD_GLOBAL              4 (T)
+             36 BINARY_SUBSCR
+             38 LOAD_CONST               1 (('return',))
+             40 BUILD_CONST_KEY_MAP      1
+             42 LOAD_CLOSURE             0 (itr)
+             44 BUILD_TUPLE              1
+             46 LOAD_CONST               2 (<code object gen at 0x10bd044b0, file "/Users/jreese/workspace/aioitertools/aioitertools/builtins.py", line 54>)
+             48 LOAD_CONST               3 ('iter.<locals>.gen')
+             50 MAKE_FUNCTION           12
+             52 STORE_FAST               1 (gen)
+
+ 58          54 LOAD_FAST                1 (gen)
+             56 CALL_FUNCTION            0
+             58 RETURN_VALUE
+
+Disassembly of list:
+ 92           0 LOAD_CONST               1 (<code object <listcomp> at 0x10c275150, file "/Users/jreese/workspace/aioitertools/aioitertools/builtins.py", line 92>)
+              2 LOAD_CONST               2 ('list.<locals>.<listcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_GLOBAL              0 (iter)
+              8 LOAD_FAST                0 (itr)
+             10 CALL_FUNCTION            1
+             12 GET_AITER
+             14 LOAD_CONST               3 (None)
+             16 YIELD_FROM
+             18 CALL_FUNCTION            1
+             20 GET_AWAITABLE
+             22 LOAD_CONST               3 (None)
+             24 YIELD_FROM
+             26 RETURN_VALUE
+
+Disassembly of map:
+137           0 SETUP_LOOP              70 (to 72)
+              2 LOAD_GLOBAL              0 (iter)
+              4 LOAD_FAST                1 (itr)
+              6 CALL_FUNCTION            1
+              8 GET_AITER
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+        >>   14 SETUP_EXCEPT            12 (to 28)
+             16 GET_ANEXT
+             18 LOAD_CONST               1 (None)
+             20 YIELD_FROM
+             22 STORE_FAST               2 (item)
+             24 POP_BLOCK
+             26 JUMP_FORWARD            10 (to 38)
+        >>   28 DUP_TOP
+             30 LOAD_GLOBAL              1 (StopAsyncIteration)
+             32 COMPARE_OP              10 (exception match)
+             34 POP_JUMP_IF_TRUE        60
+             36 END_FINALLY
+
+138     >>   38 LOAD_GLOBAL              2 (maybe_await)
+             40 LOAD_FAST                0 (fn)
+             42 LOAD_FAST                2 (item)
+             44 CALL_FUNCTION            1
+             46 CALL_FUNCTION            1
+             48 GET_AWAITABLE
+             50 LOAD_CONST               1 (None)
+             52 YIELD_FROM
+             54 YIELD_VALUE
+             56 POP_TOP
+             58 JUMP_ABSOLUTE           14
+        >>   60 POP_TOP
+             62 POP_TOP
+             64 POP_TOP
+             66 POP_EXCEPT
+             68 POP_TOP
+             70 POP_BLOCK
+        >>   72 LOAD_CONST               1 (None)
+             74 RETURN_VALUE
+
+Disassembly of next:
+ 73           0 LOAD_GLOBAL              0 (isinstance)
+              2 LOAD_FAST                0 (itr)
+              4 LOAD_GLOBAL              1 (AsyncIterator)
+              6 CALL_FUNCTION            2
+              8 POP_JUMP_IF_FALSE       24
+
+ 74          10 LOAD_FAST                0 (itr)
+             12 LOAD_ATTR                2 (__anext__)
+             14 CALL_FUNCTION            0
+             16 GET_AWAITABLE
+             18 LOAD_CONST               1 (None)
+             20 YIELD_FROM
+             22 RETURN_VALUE
+
+ 76     >>   24 SETUP_EXCEPT            10 (to 36)
+
+ 77          26 LOAD_GLOBAL              3 (builtins)
+             28 LOAD_ATTR                4 (next)
+             30 LOAD_FAST                0 (itr)
+             32 CALL_FUNCTION            1
+             34 RETURN_VALUE
+
+ 78     >>   36 DUP_TOP
+             38 LOAD_GLOBAL              5 (StopIteration)
+             40 COMPARE_OP              10 (exception match)
+             42 POP_JUMP_IF_FALSE       58
+             44 POP_TOP
+             46 POP_TOP
+             48 POP_TOP
+
+ 79          50 LOAD_GLOBAL              6 (StopAsyncIteration)
+             52 RAISE_VARARGS            1
+             54 POP_EXCEPT
+             56 JUMP_FORWARD             2 (to 60)
+        >>   58 END_FINALLY
+        >>   60 LOAD_CONST               1 (None)
+             62 RETURN_VALUE
+
+Disassembly of permutations:
+378           0 LOAD_GLOBAL              0 (list)
+              2 LOAD_FAST                0 (itr)
+              4 CALL_FUNCTION            1
+              6 GET_AWAITABLE
+              8 LOAD_CONST               1 (None)
+             10 YIELD_FROM
+             12 STORE_FAST               2 (pool)
+
+379          14 SETUP_LOOP              26 (to 42)
+             16 LOAD_GLOBAL              1 (itertools)
+             18 LOAD_ATTR                2 (permutations)
+             20 LOAD_FAST                2 (pool)
+             22 LOAD_FAST                1 (r)
+             24 CALL_FUNCTION            2
+             26 GET_ITER
+        >>   28 FOR_ITER                10 (to 40)
+             30 STORE_FAST               3 (value)
+
+380          32 LOAD_FAST                3 (value)
+             34 YIELD_VALUE
+             36 POP_TOP
+             38 JUMP_ABSOLUTE           28
+        >>   40 POP_BLOCK
+        >>   42 LOAD_CONST               1 (None)
+             44 RETURN_VALUE
+
+Disassembly of product:
+401           0 LOAD_GLOBAL              0 (asyncio)
+              2 LOAD_ATTR                1 (gather)
+              4 LOAD_CONST               1 (<code object <listcomp> at 0x10c3474b0, file "/Users/jreese/workspace/aioitertools/aioitertools/itertools.py", line 401>)
+              6 LOAD_CONST               2 ('product.<locals>.<listcomp>')
+              8 MAKE_FUNCTION            0
+             10 LOAD_FAST                1 (itrs)
+             12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 CALL_FUNCTION_EX         0
+             18 GET_AWAITABLE
+             20 LOAD_CONST               3 (None)
+             22 YIELD_FROM
+             24 STORE_FAST               2 (pools)
+
+402          26 SETUP_LOOP              30 (to 58)
+             28 LOAD_GLOBAL              2 (itertools)
+             30 LOAD_ATTR                3 (product)
+             32 LOAD_FAST                2 (pools)
+             34 LOAD_CONST               4 ('repeat')
+             36 LOAD_FAST                0 (repeat)
+             38 BUILD_MAP                1
+             40 CALL_FUNCTION_EX         1
+             42 GET_ITER
+        >>   44 FOR_ITER                10 (to 56)
+             46 STORE_FAST               3 (value)
+
+403          48 LOAD_FAST                3 (value)
+             50 YIELD_VALUE
+             52 POP_TOP
+             54 JUMP_ABSOLUTE           44
+        >>   56 POP_BLOCK
+        >>   58 LOAD_CONST               3 (None)
+             60 RETURN_VALUE
+
+Disassembly of repeat:
+416           0 SETUP_LOOP              28 (to 30)
+
+417     >>    2 LOAD_FAST                1 (n)
+              4 LOAD_CONST               1 (0)
+              6 COMPARE_OP               2 (==)
+              8 POP_JUMP_IF_FALSE       12
+
+418          10 BREAK_LOOP
+
+419     >>   12 LOAD_FAST                0 (elem)
+             14 YIELD_VALUE
+             16 POP_TOP
+
+420          18 LOAD_FAST                1 (n)
+             20 LOAD_CONST               2 (1)
+             22 INPLACE_SUBTRACT
+             24 STORE_FAST               1 (n)
+             26 JUMP_ABSOLUTE            2
+             28 POP_BLOCK
+        >>   30 LOAD_CONST               3 (None)
+             32 RETURN_VALUE
+
+Disassembly of set:
+105           0 LOAD_CONST               1 (<code object <setcomp> at 0x10c322810, file "/Users/jreese/workspace/aioitertools/aioitertools/builtins.py", line 105>)
+              2 LOAD_CONST               2 ('set.<locals>.<setcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_GLOBAL              0 (iter)
+              8 LOAD_FAST                0 (itr)
+             10 CALL_FUNCTION            1
+             12 GET_AITER
+             14 LOAD_CONST               3 (None)
+             16 YIELD_FROM
+             18 CALL_FUNCTION            1
+             20 GET_AWAITABLE
+             22 LOAD_CONST               3 (None)
+             24 YIELD_FROM
+             26 RETURN_VALUE
+
+Disassembly of starmap:
+440           0 SETUP_LOOP              84 (to 86)
+              2 LOAD_GLOBAL              0 (iter)
+              4 LOAD_FAST                1 (iterable)
+              6 CALL_FUNCTION            1
+              8 GET_AITER
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+        >>   14 SETUP_EXCEPT            12 (to 28)
+             16 GET_ANEXT
+             18 LOAD_CONST               1 (None)
+             20 YIELD_FROM
+             22 STORE_FAST               2 (itr)
+             24 POP_BLOCK
+             26 JUMP_FORWARD            10 (to 38)
+        >>   28 DUP_TOP
+             30 LOAD_GLOBAL              1 (StopAsyncIteration)
+             32 COMPARE_OP              10 (exception match)
+             34 POP_JUMP_IF_TRUE        74
+             36 END_FINALLY
+
+441     >>   38 LOAD_GLOBAL              2 (list)
+             40 LOAD_FAST                2 (itr)
+             42 CALL_FUNCTION            1
+             44 GET_AWAITABLE
+             46 LOAD_CONST               1 (None)
+             48 YIELD_FROM
+             50 STORE_FAST               3 (args)
+
+442          52 LOAD_GLOBAL              3 (maybe_await)
+             54 LOAD_FAST                0 (fn)
+             56 LOAD_FAST                3 (args)
+             58 CALL_FUNCTION_EX         0
+             60 CALL_FUNCTION            1
+             62 GET_AWAITABLE
+             64 LOAD_CONST               1 (None)
+             66 YIELD_FROM
+             68 YIELD_VALUE
+             70 POP_TOP
+             72 JUMP_ABSOLUTE           14
+        >>   74 POP_TOP
+             76 POP_TOP
+             78 POP_TOP
+             80 POP_EXCEPT
+             82 POP_TOP
+             84 POP_BLOCK
+        >>   86 LOAD_CONST               1 (None)
+             88 RETURN_VALUE
+
+Disassembly of sum:
+152           0 LOAD_FAST                1 (start)
+              2 LOAD_CONST               1 (None)
+              4 COMPARE_OP               8 (is)
+              6 POP_JUMP_IF_FALSE       20
+
+153           8 LOAD_GLOBAL              0 (cast)
+             10 LOAD_GLOBAL              1 (T)
+             12 LOAD_CONST               2 (0)
+             14 CALL_FUNCTION            2
+             16 STORE_FAST               2 (value)
+             18 JUMP_FORWARD             4 (to 24)
+
+155     >>   20 LOAD_FAST                1 (start)
+             22 STORE_FAST               2 (value)
+
+157     >>   24 SETUP_LOOP              58 (to 84)
+             26 LOAD_GLOBAL              2 (iter)
+             28 LOAD_FAST                0 (itr)
+             30 CALL_FUNCTION            1
+             32 GET_AITER
+             34 LOAD_CONST               1 (None)
+             36 YIELD_FROM
+        >>   38 SETUP_EXCEPT            12 (to 52)
+             40 GET_ANEXT
+             42 LOAD_CONST               1 (None)
+             44 YIELD_FROM
+             46 STORE_FAST               3 (item)
+             48 POP_BLOCK
+             50 JUMP_FORWARD            10 (to 62)
+        >>   52 DUP_TOP
+             54 LOAD_GLOBAL              3 (StopAsyncIteration)
+             56 COMPARE_OP              10 (exception match)
+             58 POP_JUMP_IF_TRUE        72
+             60 END_FINALLY
+
+158     >>   62 LOAD_FAST                2 (value)
+             64 LOAD_FAST                3 (item)
+             66 INPLACE_ADD
+             68 STORE_FAST               2 (value)
+             70 JUMP_ABSOLUTE           38
+        >>   72 POP_TOP
+             74 POP_TOP
+             76 POP_TOP
+             78 POP_EXCEPT
+             80 POP_TOP
+             82 POP_BLOCK
+
+160     >>   84 LOAD_FAST                2 (value)
+             86 RETURN_VALUE
+
+Disassembly of takewhile:
+462           0 SETUP_LOOP              78 (to 80)
+              2 LOAD_GLOBAL              0 (iter)
+              4 LOAD_FAST                1 (iterable)
+              6 CALL_FUNCTION            1
+              8 GET_AITER
+             10 LOAD_CONST               1 (None)
+             12 YIELD_FROM
+        >>   14 SETUP_EXCEPT            12 (to 28)
+             16 GET_ANEXT
+             18 LOAD_CONST               1 (None)
+             20 YIELD_FROM
+             22 STORE_FAST               2 (item)
+             24 POP_BLOCK
+             26 JUMP_FORWARD            10 (to 38)
+        >>   28 DUP_TOP
+             30 LOAD_GLOBAL              1 (StopAsyncIteration)
+             32 COMPARE_OP              10 (exception match)
+             34 POP_JUMP_IF_TRUE        68
+             36 END_FINALLY
+
+463     >>   38 LOAD_GLOBAL              2 (maybe_await)
+             40 LOAD_FAST                0 (predicate)
+             42 LOAD_FAST                2 (item)
+             44 CALL_FUNCTION            1
+             46 CALL_FUNCTION            1
+             48 GET_AWAITABLE
+             50 LOAD_CONST               1 (None)
+             52 YIELD_FROM
+             54 POP_JUMP_IF_FALSE       64
+
+464          56 LOAD_FAST                2 (item)
+             58 YIELD_VALUE
+             60 POP_TOP
+             62 JUMP_ABSOLUTE           14
+
+466     >>   64 BREAK_LOOP
+             66 JUMP_ABSOLUTE           14
+        >>   68 POP_TOP
+             70 POP_TOP
+             72 POP_TOP
+             74 POP_EXCEPT
+             76 POP_TOP
+             78 POP_BLOCK
+        >>   80 LOAD_CONST               1 (None)
+             82 RETURN_VALUE
+
+Disassembly of tee:
+494           0 LOAD_FAST                1 (n)
+              2 LOAD_CONST               1 (0)
+              4 COMPARE_OP               4 (>)
+              6 POP_JUMP_IF_TRUE        12
+              8 LOAD_GLOBAL              0 (AssertionError)
+             10 RAISE_VARARGS            1
+
+495     >>   12 LOAD_GLOBAL              1 (object)
+             14 CALL_FUNCTION            0
+             16 STORE_DEREF              3 (sentinel)
+
+496          18 LOAD_CONST               2 (<code object <listcomp> at 0x10c347780, file "/Users/jreese/workspace/aioitertools/aioitertools/itertools.py", line 496>)
+             20 LOAD_CONST               3 ('tee.<locals>.<listcomp>')
+             22 MAKE_FUNCTION            0
+             24 LOAD_GLOBAL              2 (range)
+             26 LOAD_FAST                1 (n)
+             28 CALL_FUNCTION            1
+             30 GET_ITER
+             32 CALL_FUNCTION            1
+             34 STORE_DEREF              2 (queues)
+
+498          36 LOAD_GLOBAL              3 (int)
+             38 LOAD_GLOBAL              4 (asyncio)
+             40 LOAD_ATTR                5 (Queue)
+             42 LOAD_GLOBAL              6 (AsyncIterator)
+             44 LOAD_GLOBAL              7 (T)
+             46 BINARY_SUBSCR
+             48 LOAD_CONST               4 (('k', 'q', 'return'))
+             50 BUILD_CONST_KEY_MAP      3
+             52 LOAD_CLOSURE             1 (itr)
+             54 LOAD_CLOSURE             2 (queues)
+             56 LOAD_CLOSURE             3 (sentinel)
+             58 BUILD_TUPLE              3
+             60 LOAD_CONST               5 (<code object gen at 0x10c347930, file "/Users/jreese/workspace/aioitertools/aioitertools/itertools.py", line 498>)
+             62 LOAD_CONST               6 ('tee.<locals>.gen')
+             64 MAKE_FUNCTION           12
+             66 STORE_DEREF              0 (gen)
+
+513          68 LOAD_GLOBAL              8 (tuple)
+             70 LOAD_CLOSURE             0 (gen)
+             72 BUILD_TUPLE              1
+             74 LOAD_CONST               7 (<code object <genexpr> at 0x10c3479c0, file "/Users/jreese/workspace/aioitertools/aioitertools/itertools.py", line 513>)
+             76 LOAD_CONST               8 ('tee.<locals>.<genexpr>')
+             78 MAKE_FUNCTION            8
+             80 LOAD_GLOBAL              9 (builtins)
+             82 LOAD_ATTR               10 (enumerate)
+             84 LOAD_DEREF               2 (queues)
+             86 CALL_FUNCTION            1
+             88 GET_ITER
+             90 CALL_FUNCTION            1
+             92 CALL_FUNCTION            1
+             94 RETURN_VALUE
+
+Disassembly of zip:
+228           0 LOAD_CONST               1 (<code object <listcomp> at 0x10c33d9c0, file "/Users/jreese/workspace/aioitertools/aioitertools/builtins.py", line 228>)
+              2 LOAD_CONST               2 ('zip.<locals>.<listcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_FAST                0 (itrs)
+              8 GET_ITER
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               1 (its)
+
+230          14 SETUP_LOOP              64 (to 80)
+
+231     >>   16 SETUP_EXCEPT            36 (to 54)
+
+232          18 LOAD_GLOBAL              0 (asyncio)
+             20 LOAD_ATTR                1 (gather)
+             22 LOAD_CONST               3 (<code object <listcomp> at 0x10c33dd20, file "/Users/jreese/workspace/aioitertools/aioitertools/builtins.py", line 232>)
+             24 LOAD_CONST               2 ('zip.<locals>.<listcomp>')
+             26 MAKE_FUNCTION            0
+             28 LOAD_FAST                1 (its)
+             30 GET_ITER
+             32 CALL_FUNCTION            1
+             34 CALL_FUNCTION_EX         0
+             36 GET_AWAITABLE
+             38 LOAD_CONST               4 (None)
+             40 YIELD_FROM
+             42 STORE_FAST               2 (values)
+
+233          44 LOAD_FAST                2 (values)
+             46 YIELD_VALUE
+             48 POP_TOP
+             50 POP_BLOCK
+             52 JUMP_ABSOLUTE           16
+
+234     >>   54 DUP_TOP
+             56 LOAD_GLOBAL              2 (AnyStop)
+             58 COMPARE_OP              10 (exception match)
+             60 POP_JUMP_IF_FALSE       74
+             62 POP_TOP
+             64 POP_TOP
+             66 POP_TOP
+
+235          68 BREAK_LOOP
+             70 POP_EXCEPT
+             72 JUMP_ABSOLUTE           16
+        >>   74 END_FINALLY
+             76 JUMP_ABSOLUTE           16
+             78 POP_BLOCK
+        >>   80 LOAD_CONST               4 (None)
+             82 RETURN_VALUE
+
+Disassembly of zip_longest:
+535           0 LOAD_CONST               1 (<code object <listcomp> at 0x10c347ae0, file "/Users/jreese/workspace/aioitertools/aioitertools/itertools.py", line 535>)
+              2 LOAD_CONST               2 ('zip_longest.<locals>.<listcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_FAST                1 (itrs)
+              8 GET_ITER
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               2 (its)
+
+536          14 LOAD_GLOBAL              0 (len)
+             16 LOAD_FAST                2 (its)
+             18 CALL_FUNCTION            1
+             20 STORE_FAST               3 (itr_count)
+
+537          22 LOAD_CONST               3 (0)
+             24 STORE_FAST               4 (finished)
+
+539          26 SETUP_LOOP             134 (to 162)
+
+540     >>   28 LOAD_GLOBAL              1 (asyncio)
+             30 LOAD_ATTR                2 (gather)
+
+541          32 LOAD_CONST               4 (<code object <listcomp> at 0x10c347b70, file "/Users/jreese/workspace/aioitertools/aioitertools/itertools.py", line 541>)
+             34 LOAD_CONST               2 ('zip_longest.<locals>.<listcomp>')
+             36 MAKE_FUNCTION            0
+             38 LOAD_FAST                2 (its)
+             40 GET_ITER
+             42 CALL_FUNCTION            1
+             44 LOAD_CONST               5 ('return_exceptions')
+             46 LOAD_CONST               6 (True)
+             48 BUILD_MAP                1
+             50 CALL_FUNCTION_EX         1
+             52 GET_AWAITABLE
+             54 LOAD_CONST               7 (None)
+             56 YIELD_FROM
+             58 STORE_FAST               5 (values)
+
+543          60 SETUP_LOOP              76 (to 138)
+             62 LOAD_GLOBAL              3 (builtins)
+             64 LOAD_ATTR                4 (enumerate)
+             66 LOAD_FAST                5 (values)
+             68 CALL_FUNCTION            1
+             70 GET_ITER
+        >>   72 FOR_ITER                62 (to 136)
+             74 UNPACK_SEQUENCE          2
+             76 STORE_FAST               6 (idx)
+             78 STORE_FAST               7 (value)
+
+544          80 LOAD_GLOBAL              5 (isinstance)
+             82 LOAD_FAST                7 (value)
+             84 LOAD_GLOBAL              6 (AnyStop)
+             86 CALL_FUNCTION            2
+             88 POP_JUMP_IF_FALSE      120
+
+545          90 LOAD_FAST                4 (finished)
+             92 LOAD_CONST               8 (1)
+             94 INPLACE_ADD
+             96 STORE_FAST               4 (finished)
+
+546          98 LOAD_FAST                0 (fillvalue)
+            100 LOAD_FAST                5 (values)
+            102 LOAD_FAST                6 (idx)
+            104 STORE_SUBSCR
+
+547         106 LOAD_GLOBAL              7 (repeat)
+            108 LOAD_FAST                0 (fillvalue)
+            110 CALL_FUNCTION            1
+            112 LOAD_FAST                2 (its)
+            114 LOAD_FAST                6 (idx)
+            116 STORE_SUBSCR
+            118 JUMP_ABSOLUTE           72
+
+548     >>  120 LOAD_GLOBAL              5 (isinstance)
+            122 LOAD_FAST                7 (value)
+            124 LOAD_GLOBAL              8 (BaseException)
+            126 CALL_FUNCTION            2
+            128 POP_JUMP_IF_FALSE       72
+
+549         130 LOAD_FAST                7 (value)
+            132 RAISE_VARARGS            1
+            134 JUMP_ABSOLUTE           72
+        >>  136 POP_BLOCK
+
+550     >>  138 LOAD_FAST                4 (finished)
+            140 LOAD_FAST                3 (itr_count)
+            142 COMPARE_OP               5 (>=)
+            144 POP_JUMP_IF_FALSE      148
+
+551         146 BREAK_LOOP
+
+552     >>  148 LOAD_GLOBAL              9 (tuple)
+            150 LOAD_FAST                5 (values)
+            152 CALL_FUNCTION            1
+            154 YIELD_VALUE
+            156 POP_TOP
+            158 JUMP_ABSOLUTE           28
+            160 POP_BLOCK
+        >>  162 LOAD_CONST               7 (None)
+            164 RETURN_VALUE
+

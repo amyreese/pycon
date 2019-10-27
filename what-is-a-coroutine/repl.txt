@@ -1,0 +1,43 @@
+
+
+>>> wait([Sleep(1), Sleep(2)])
+duration = 3.0
+result = [None, None]
+
+>>> fib(5), [print(x) for x in fib(5)]
+<generator object fib at 0x103deab30>
+1
+1
+2
+3
+5
+StopIteration
+
+sent 3, got 3
+sent 2, got 5
+sent 3, got 8
+sent 2, got 10
+
+duration = 0.1
+[123, 123]
+
+duration = 1.43
+'\n<!DOCTYPE html>\n<ht'
+'<!DOCTYPE html>\n<!--'
+'<!DOCTYPE html>\n<htm'
+'<html op="news"><hea'
+'<!doctype html>\n<!--'
+
+duration = 1.28
+'\n<!DOCTYPE html>\n<ht'
+'<!DOCTYPE html>\n<!--'
+'<!DOCTYPE html>\n<htm'
+'<html op="news"><hea'
+'<!doctype html>\n<!--'
+
+<coroutine object foo at 0x10c80d240>
+37
+
+<coroutine object foo at 0x106c4c240>
+sleeping...
+37

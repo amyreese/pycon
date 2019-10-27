@@ -1,5 +1,14 @@
 # John Reese's Python Talks and Examples
 
+## What *is* a Coroutine Anyways?
+
+As seen at North Bay Python 2019 in Petaluma, CA:
+
+> ![Title Slide](https://raw.githubusercontent.com/jreese/pycon/master/thumbnails/what-is-a-coroutine.png)
+
+* [Slide deck (with speaker notes)](https://raw.githubusercontent.com/jreese/pycon/master/what-is-a-coroutine/slide-with-notes.pdf)
+* [Example code](https://github.com/jreese/pycon/tree/master/what-is-a-coroutine)
+
 ## Friendly and Modern AsyncIO
 
 Workshop from Pycon US 2019 in Cleveland:
