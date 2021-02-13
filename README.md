@@ -4,7 +4,7 @@
 
 As seen at North Bay Python 2019 in Petaluma, CA:
 
-> ![Title Slide](https://raw.githubusercontent.com/jreese/pycon/master/thumbnails/what-is-a-coroutine.png)
+> [![Title Slide](https://raw.githubusercontent.com/jreese/pycon/master/thumbnails/what-is-a-coroutine.png)](https://www.youtube.com/watch?v=GSiZkP7cI80)
 
 * [Slide deck (with speaker notes)](https://raw.githubusercontent.com/jreese/pycon/master/what-is-a-coroutine/slide-with-notes.pdf)
 * [Example code](https://github.com/jreese/pycon/tree/master/what-is-a-coroutine)
