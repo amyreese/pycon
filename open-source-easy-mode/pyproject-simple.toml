@@ -1,0 +1,29 @@
+[build-system]
+requires = ["flit-core >= 3.7"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "neat"
+description = "A one-line summary"
+readme = "README.md"
+license = {file="LICENSE"}
+authors = [
+    {name="Buzz Fizz", email="fizzbuzz@ch"},
+]
+requires-python = ">= 3.8"
+dependencies = [
+    "attrs",
+    "click",
+]
+dynamic = ["version"]
+
+[tool.thx]
+default = ["format", "test", "lint"]
+
+[tool.thx.jobs]
+format = "ufmt format neat"
+lint = "flake8 neat"
+publish = "flit publish"
+test = "python -m unittest neat.tests"
+
+

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["flit-core >= 3.7"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "neat"
+description = "A one-line summary"
+readme = "README.md"
+license = {file="LICENSE"}
+authors = [
+    {name="Buzz Fizz", email="fizzbuzz@ch"},
+]
+requires-python = ">= 3.8"
+dependencies = [
+    "attrs >= 20.1",
+    "click >= 7",
+]
+dynamic = ["version"]
+
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+
+[tool.thx]
+default = ["format", "test", "lint"]
+python_versions = ["3.8", "3.9", "3.10", "3.11"]
+watch_paths = ["neat"]
+
+[tool.thx.jobs]
+publish = "flit publish"
+test = "python -m unittest neat.tests"
+
+[tool.thx.jobs.format]
+run = "ufmt format neat"
+once = true
+
+[tool.thx.jobs.lint]
+run = [
+    "flake8 neat",
+    "mypy --install-types --non-interactive -p neat",
+    "ufmt check neat",
+]
+parallel = true
+
