@@ -8,6 +8,7 @@ from typing import List, Optional
 import click
 from attr import dataclass
 
+from .data import VALUE
 
 SOME_REGEX = re.compile(r"(\w)(\w)(\w)\3\2\1")
 
@@ -40,4 +41,4 @@ def example_function(
 
 def use_names() -> None:
     # act like we're using stuff we imported
-    print(click, dataclass)
+    print(click, dataclass, VALUE)
