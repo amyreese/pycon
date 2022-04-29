@@ -1,13 +1,22 @@
 # John Reese's Python Talks and Examples
 
+## Open Source on Easy Mode
+
+As seen at PyCon US 2022 in Salt Lake City, UT:
+
+![Title slide](https://raw.githubusercontent.com/jreese/pycon/master/thumbnails/open-source-easy-mode.png)
+
+* [Slide desk (with notes)](https://raw.githubusercontent.com/jreese/pycon/main/open-source-easy-mode/slides-with-notes.pdf)
+* [References and example project](https://github.com/jreese/pycon/tree/main/open-source-easy-mode)
+
 ## What *is* a Coroutine Anyways?
 
 As seen at North Bay Python 2019 in Petaluma, CA:
 
-> [![Title Slide](https://raw.githubusercontent.com/jreese/pycon/master/thumbnails/what-is-a-coroutine.png)](https://www.youtube.com/watch?v=GSiZkP7cI80)
+> [![Title Slide](https://raw.githubusercontent.com/jreese/pycon/main/thumbnails/what-is-a-coroutine.png)](https://www.youtube.com/watch?v=GSiZkP7cI80)
 
-* [Slide deck (with speaker notes)](https://github.com/jreese/pycon/raw/master/what-is-a-coroutine/slides-with-notes.pdf)
-* [Example code](https://github.com/jreese/pycon/tree/master/what-is-a-coroutine)
+* [Slide deck (with speaker notes)](https://github.com/jreese/pycon/raw/main/what-is-a-coroutine/slides-with-notes.pdf)
+* [Example code](https://github.com/jreese/pycon/tree/main/what-is-a-coroutine)
 
 ## Friendly and Modern AsyncIO
 
