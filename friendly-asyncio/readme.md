@@ -4,7 +4,7 @@ This repository provides a set of example code for using
 AsyncIO in Python 3.7, and building friendly APIs and tools
 on top of popular open source libraries.
 
-![[Title Slide](https://speakerdeck.com/jreese/friendly-and-modern-asyncio)](https://raw.githubusercontent.com/jreese/pycon/master/friendly-asyncio/thumbnail.jpg)
+![[Title Slide](https://speakerdeck.com/amyreese/friendly-and-modern-asyncio)](https://raw.githubusercontent.com/amyreese/pycon/master/friendly-asyncio/thumbnail.jpg)
 
 * [Slide deck (including speaker notes)](https://www.dropbox.com/s/m3118hs1vf9cyfx/Friendly%20and%20Modern%20AsyncIO%20with%20notes.pdf?dl=0)
 
@@ -28,7 +28,7 @@ will clone this repository, create a virtualenv, and install
 a set of common libraries for AsyncIO from PyPI.
 
 ```bash
-$ git clone https://github.com/jreese/pycon
+$ git clone https://github.com/amyreese/pycon
 $ cd pycon/friendly-asyncio
 $ python3.7 -m venv venv
 $ source venv/bin/activate

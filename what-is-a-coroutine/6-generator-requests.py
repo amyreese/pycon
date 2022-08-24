@@ -1,4 +1,4 @@
-# Copyright 2019 John Reese
+# Copyright 2022 Amethyst Reese
 # Licensed under the MIT License
 
 import time
@@ -14,7 +14,7 @@ SIZE = 1024
 URLS = [
     "https://2019.northbaypython.org",
     "https://duckduckgo.com",
-    "https://jreese.sh",
+    "https://noswap.com",
     "https://news.ycombinator.com",
     "https://python.org",
 ]

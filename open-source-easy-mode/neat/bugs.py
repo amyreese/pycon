@@ -1,4 +1,4 @@
-# Copyright 2022 John Reese
+# Copyright 2022 Amethyst Reese
 # Licensed under the MIT License
 
 # THIS CODE IS INTENTIONALLY AWFUL

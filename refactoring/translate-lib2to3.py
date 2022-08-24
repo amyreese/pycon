@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright 2018 John Reese
+# Copyright 2022 Amethyst Reese
 # Licensed under the MIT License
 
 import logging
