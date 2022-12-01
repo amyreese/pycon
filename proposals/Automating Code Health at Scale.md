@@ -22,7 +22,7 @@ This talk is primarily targeted towards developers maintaining codebases with ma
 
 **Experience**
 
-Many of these tools are ones that I have built or contributed to, and the advice comes from my experience in a language foundation team supporting Python developers at a large tech company.
+Many of these tools are ones that I have built or contributed to, and the advice comes from a decade of experience in developer tooling and automation, and five years in a language foundation team supporting Python developers at a large tech company.
 
 **Outline (25 minutes)**
 
