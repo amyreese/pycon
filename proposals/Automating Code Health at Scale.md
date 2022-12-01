@@ -1,18 +1,18 @@
 ### Abstract
 
-Consistent formatting and code style is a key component of readable and maintainable code, but enforcing it on a rapidly growing codebase can be daunting. No one wants to review or even think about code style, but everyone appreciates code that is well formatted. The hard part is keeping it that way!
+Consistent formatting and code style is a key component of readable and maintainable code, but enforcing it on a rapidly growing codebase can be daunting. No one wants to review or even think about code style, but everyone appreciates code that is well formatted and follows best practices. The hard part is keeping it that way!
 
-We'll look at general tactics for safely modifying code and enforcing positive code style, while minimizing both the risk to a production codebase and the level of effort needed to maintain it. We'll approach these topics from the lens of a large monorepo, but everything discussed will be equally useful and applicable to open source projects, big and small!
+We'll look at general tactics for safely modifying code at scale and enforcing positive code style, while minimizing both the risk to a production codebase and the level of effort needed to maintain it. We'll approach these topics from the lens of a large monorepo, but everything discussed will be equally useful and applicable to open source projects, big and small!
 
 ### Description
 
-We'll start the talk by looking at a range of code style desicions available, and the difficulties traditionally associated with maintaining that style, particularly within large codebases or monorepos. We'll discuss our goals for automating code changes, and how that benefits the overal health of the codebase, and makes developers more productive in the long term.
+We'll start the talk by looking at what defines a healthy codebase, from simple formatting and code style to tech debt and deprecated code. We'll cover the difficulties traditionally associated with maintaining code health, particularly within large projects and monorepos. We'll set some basic goals for automating code changes, and how that benefits the overall health of the codebase and makes developers more productive in the long term.
 
-The first piece of the puzzle is general code formatting. We'll talk about black, how it uses syntax trees to guarantee robust and safe changes, and how we can maintain consistent formatting even when developers are committing unformatted code. We'll look at sorting imports and other collection literals, and the unique dangers this poses in a Python codebase. We'll see how those risks can be mitigated with robust design, and break down our open source tool called "µsort", which we use to sort imports at scale in our own large monorepo.
+The first piece of the puzzle is general code formatting. We'll talk about black, how it uses syntax trees to guarantee robust and safe changes, and how we can maintain consistent formatting even when developers are actively committing unformatted code. We'll look at sorting imports and other collection literals, and the unique dangers this poses in a Python codebase. We'll see how those risks can be mitigated with robust design, and break down the open source tool called µsort, which we use to sort imports at scale in our own large monorepo.
 
 Then we'll dive into the deep end and discuss linters and codemods that can automatically provide suggested changes, and how to build intelligent, targeted lint rules. We'll showcase tools, including LibCST and Fixit, which use a concrete syntax tree to automate fixes and codemods, and look at how they can empower developers to reduce tech debt and make sweeping improvements to the entire codebase.
 
-We'll finish with a high level discussion of tactics and strategies to deploy all of these tools in codebases both big and small, and how to automate their usage without endangering production, burdening developers, or overloading release infrastructure.
+We'll finish with a high level discussion of tactics and strategies to deploy all of these tools in codebases both big and small, and how to automate their usage without endangering production, burdening developers, or overloading testing infrastructure.
 
 ### Notes
 
@@ -27,13 +27,14 @@ Many of these tools are ones that I have built or contributed to, and the advice
 **Outline (25 minutes)**
 
 - Introduction (4 minutes)
-	- code style and monorepos
+	- code health and monorepos
 	- safety requirements needed
 	- goals for automation
 - Code formatting (4 minutes)
 	- how does black work
-	- why a CST helps
+	- why a CST makes this safe
 	- keeping code formatted
+	- dealing with generated code
 - Import sorting (7 minutes)
 	- why this is risky
 	- how can we do this safely
