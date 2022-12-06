@@ -38,6 +38,7 @@ Many of these tools are ones that I have built or contributed to, and the advice
 - Import sorting (7 minutes)
 	- why this is risky
 	- how can we do this safely
+	- getting the details right
 	- introduce µsort, how it works
 	- combine with black -> µfmt
 - Linting (6 minutes)
@@ -50,6 +51,22 @@ Many of these tools are ones that I have built or contributed to, and the advice
 	- how to apply changes safely
 	- keeping change sets small
 	- minimizing code churn
+
+---
+
+### Pycon Description (300 words)
+
+Consistent formatting and code style is a key component of readable and maintainable code, but enforcing it on a rapidly growing codebase can be daunting. No one wants to review or even think about code style, but everyone appreciates code that is well formatted and follows best practices. The hard part is keeping it that way!
+
+We'll look at general tactics for safely modifying code at scale and enforcing positive code style, while minimizing both the risk to a production codebase and the level of effort needed to maintain it. We'll approach these topics from the lens of a monorepo, but everything will be equally applicable to open source projects, big and small!
+
+We'll start with what defines a healthy codebase, from simple formatting and style to tech debt and deprecated code. We'll cover difficulties associated with maintaining code health, particularly within large projects. We'll set basic goals for automating code changes, and see how that benefits longterm codebase health.
+
+Next is code formatting. We'll talk about black, how syntax trees guarantee robust and safe changes, and how to maintain formatting when developers won't. We'll look at sorting imports, and the dangers this poses in Python. We'll see how these risks are mitigated in the open source tool called µsort, which we use in our own large monorepo.
+
+Then we'll dive in and discuss linters and codemods that can automatically suggest changes, and how to build intelligent, targeted lint rules. We'll showcase LibCST and Fixit, and look at how they empower developers to reduce tech debt and make sweeping improvements to the codebase.
+
+We'll finish with tactics and strategies to deploy these tools in your codebase, and how to automate usage without endangering production or overloading testing infrastructure.
 
 ---
 
