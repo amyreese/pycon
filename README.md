@@ -1,5 +1,14 @@
 # Amethyst's Python Talks and Examples
 
+## Python 3.13 is Kind of a Big Deal
+
+As seen at [Pyninsula](https://pyninsula.org/) #34,
+hosted by Snowflake in San Mateo, CA:
+
+![Title slide](https://raw.githubusercontent.com/amyreese/pycon/main/thumbnails/python-313-is-a-big-deal.png)
+
+* [Slides (with notes)](https://raw.githubusercontent.com/amyreese/pycon/main/slides/python-313-is-a-big-deal.pdf)
+
 ## Open Source on Easy Mode
 
 As seen at PyCon US 2022 in Salt Lake City, UT:
