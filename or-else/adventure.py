@@ -63,7 +63,7 @@ def bedroom(game):
         if game.tired:
             text += " You feel tired."
 
-        choice = prompt(text, ["sleep", "east"])
+        choice = prompt(text, ["east", "sleep"])
 
         if choice == "east":
             yield hallway
@@ -134,7 +134,7 @@ def kitchen(game):
 
 
 def outside(game):
-    print("You are outside. It's a great day to be in Petaluma!")
+    print("You walk out the front door. It's a great day to be in Petaluma!")
     yield None
 
 
