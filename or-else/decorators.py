@@ -23,6 +23,8 @@ def function():
     pass
 
 
+# is the same as
+
 function = decorator(function)
 
 
@@ -96,7 +98,7 @@ def until(predicate):
             while not predicate():
                 fn()
 
-        return wrapped()
+        wrapped()
 
     return wrapper
 

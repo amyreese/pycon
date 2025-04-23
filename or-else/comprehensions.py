@@ -1,7 +1,9 @@
 # Copyright Amethyst Reese
 # Licensed under the MIT License
 
-names = ["amy", "ben", "cody", "dana", "elaine", "frankie"]
+import re
+
+names = ["amber", "ben", "cody", "dana", "elaine", "frankie", "gabby"]
 
 ### Examples
 
@@ -45,4 +47,18 @@ for name in names:
             result.append(name)
 
 
-# TODO: obnoxious comprehension
+result = [
+    group
+    for name in names
+    if (match := re.search(r"(a.*)(b.*)", name))
+    for group in match.groups()
+    if len(group) > 1
+]
+# ['am', 'ber', 'ab', 'by']
+
+result = []
+for name in names:
+    if match := re.search(r"(a.*)(b.*)", name):
+        for group in match.groups():
+            if len(group) > 1:
+                result.append()
