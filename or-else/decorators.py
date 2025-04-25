@@ -1,6 +1,13 @@
 # Copyright Amethyst Reese
 # Licensed under the MIT License
 
+# /// script
+# dependencies = [
+#   "do-while",
+# ]
+# ///
+
+
 import logging
 import sys
 from random import randint
@@ -148,13 +155,32 @@ k = 4
 @do
 def loop():
     global k
-    print(f"{k = }")
     k -= 1
 
 
-while_(lambda: k > 0)
+while_(lambda: print(f"{k = }") or k > 0)
 
-# k = 4
 # k = 3
 # k = 2
 # k = 1
+# k = 0
+
+
+###
+
+from do_while import do, while_
+
+queue = ["foo", "bar", "baz"]
+
+
+@do
+def loop():
+    item = queue.pop()
+    print(f"{item = }")
+
+
+while_(queue)
+
+# item = 'baz'
+# item = 'bar'
+# item = 'foo'

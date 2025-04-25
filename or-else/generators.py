@@ -29,9 +29,12 @@ for value in generator:
 
 
 generator = function()
+# "pump" the generator
+value = next(generator)
+
+generator = function()
 value = None
 
-# "pump" the generator
 value = generator.send(value)
 
 

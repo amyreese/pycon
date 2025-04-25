@@ -33,25 +33,30 @@ finally:
     if success:
         ...  # should have used else
 
+try:
+    ...
+
+except Exception:
+    ...
+
+else:
+    ...  # success
+
 
 def function():
     try:
-        print("try")
+        ...
         return
 
     except Exception:
         pass
 
     else:
-        print("or else!")  # skipped by return
+        ...  # skipped by return
 
     finally:
-        print("finally!")  # but this will run
+        ...  # but this will run
 
-
-function()
-# try
-# finally!
 
 ### Simple Loops
 
