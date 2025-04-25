@@ -8,13 +8,8 @@ def function():
 
 
 def function():
-    yield 42
     # defer to another generator
     yield from range(5)
-
-
-def function():
-    yield 42
 
 
 # initialize generator object
@@ -22,6 +17,9 @@ generator = function()
 
 print(generator)
 # <generator object function at 0x102c10930>
+
+
+generator = function()
 
 # run generator, process values as yielded
 for value in generator:
@@ -33,6 +31,7 @@ for value in generator:
 generator = function()
 value = None
 
+# "pump" the generator
 value = generator.send(value)
 
 

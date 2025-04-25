@@ -8,18 +8,30 @@
 # ///
 
 from dataclasses import dataclass
+from functools import wraps
 
 from rich import print
 from rich.prompt import Prompt
 
+### Game "Engine"
+
 
 @dataclass
 class Game:
+    """Global game state"""
+
+    asleep = True
     tired = True
     cake = True
 
 
 def play(state):
+    """
+    Game engine framework.
+
+    Run generator functions and transition on yields.
+    Pass the game state object when initializing generators.
+    """
     game = Game()
     states = {}
 
@@ -41,6 +53,11 @@ def play(state):
 
 
 def repeat(fn):
+    """
+    Wrap a generator function in an infinite loop.
+    """
+
+    @wraps
     def wrapped(*args, **kwargs):
         while True:
             yield from fn(*args, **kwargs)
@@ -49,7 +66,13 @@ def repeat(fn):
 
 
 def prompt(text, choices):
-    return Prompt.ask(text, choices=choices, case_sensitive=False)
+    """
+    Prompt the user with a set of actions they can take.
+    """
+    return Prompt.ask(f"\n{text}", choices=choices, case_sensitive=False)
+
+
+### Game states/rooms
 
 
 def start(game):
@@ -59,7 +82,11 @@ def start(game):
 
 def bedroom(game):
     while True:
-        text = "You wake up in a [bold]bedroom[/bold]."
+        if game.asleep:
+            text = "You wake up in a [bold]bedroom[/bold]."
+            game.asleep = False
+        else:
+            text = "You are in the [bold]bedroom[/bold]."
         if game.tired:
             text += " You feel tired."
 
@@ -67,9 +94,11 @@ def bedroom(game):
 
         if choice == "east":
             yield hallway
+
         elif choice == "sleep":
             print("What a week. ZZzzz...")
             game.tired = False
+            game.asleep = True
 
 
 @repeat
@@ -81,8 +110,10 @@ def hallway(game):
 
     if choice == "west":
         yield bedroom
+
     elif choice == "north":
         yield livingroom
+
     elif choice == "south":
         yield bathroom
 
@@ -102,18 +133,37 @@ def bathroom(game):
 def livingroom(game):
     choice = prompt(
         "You are in the [bold]living room[/bold].",
-        ["north", "east", "south"],
+        ["north", "south", "east", "west"],
     )
 
     if choice == "south":
         yield hallway
+
     elif choice == "north":
         yield kitchen
+
     elif choice == "east":
         if game.cake or game.tired:
             print("You aren't ready to face the world yet.")
         else:
             yield outside
+
+    elif choice == "west":
+        yield closet
+
+
+@repeat
+def closet(game):
+    choice = prompt(
+        "You find yourself in a closet. It is dark.",
+        ["east", "light"],
+    )
+
+    if choice == "east":
+        yield livingroom
+
+    elif choice == "light":
+        print("You pull the chain. The bulb must be burned out.")
 
 
 def kitchen(game):
@@ -128,15 +178,20 @@ def kitchen(game):
 
         if choice == "south":
             yield livingroom
+
         elif choice == "eat":
             print("You eat the cake.")
             game.cake = False
 
 
 def outside(game):
-    print("You walk out the front door. It's a great day to be in Petaluma!")
+    print(
+        "You walk out the front door. "
+        "It's a great day to be in [bold]Petaluma[/bold]!"
+    )
     yield None
 
 
+# play the game
 if __name__ == "__main__":
     play(start)
