@@ -8,7 +8,6 @@
 # ///
 
 from dataclasses import dataclass
-from functools import wraps
 
 from rich import print
 from rich.prompt import Prompt
@@ -57,7 +56,6 @@ def repeat(fn):
     Wrap a generator function in an infinite loop.
     """
 
-    @wraps
     def wrapped(*args, **kwargs):
         while True:
             yield from fn(*args, **kwargs)
@@ -80,25 +78,28 @@ def start(game):
     yield bedroom
 
 
+@repeat
 def bedroom(game):
-    while True:
-        if game.asleep:
-            text = "You wake up in a [bold]bedroom[/bold]."
-            game.asleep = False
-        else:
-            text = "You are in the [bold]bedroom[/bold]."
+    if game.asleep:
+        text = "You wake up in a [bold]bedroom[/bold]."
+        game.asleep = False
+    else:
+        text = "You are in the [bold]bedroom[/bold]."
+    if game.tired:
+        text += " You feel tired."
+
+    choice = prompt(text, ["east", "sleep"])
+
+    if choice == "east":
+        yield hallway
+
+    elif choice == "sleep":
         if game.tired:
-            text += " You feel tired."
-
-        choice = prompt(text, ["east", "sleep"])
-
-        if choice == "east":
-            yield hallway
-
-        elif choice == "sleep":
             print("What a week. ZZzzz...")
             game.tired = False
-            game.asleep = True
+        else:
+            print("A little nap can't hurt. Zzz...")
+        game.asleep = True
 
 
 @repeat
@@ -121,7 +122,7 @@ def hallway(game):
 @repeat
 def bathroom(game):
     choice = prompt(
-        "You are in the [bold]bathroom[/bold].",
+        "You are in the [bold]bathroom[/bold]. So daring!",
         ["north"],
     )
 
@@ -166,22 +167,22 @@ def closet(game):
         print("You pull the chain. The bulb must be burned out.")
 
 
+@repeat
 def kitchen(game):
-    while True:
-        text = "You are in the [bold]kitchen[/bold]."
-        choices = ["south"]
-        if game.cake:
-            text += " There is ✨ [bold]cake[/bold] ✨."
-            choices += ["eat"]
+    text = "You are in the [bold]kitchen[/bold]."
+    choices = ["south"]
+    if game.cake:
+        text += " There is ✨ [bold]cake[/bold] ✨."
+        choices += ["eat"]
 
-        choice = prompt(text, choices)
+    choice = prompt(text, choices)
 
-        if choice == "south":
-            yield livingroom
+    if choice == "south":
+        yield livingroom
 
-        elif choice == "eat":
-            print("You eat the cake.")
-            game.cake = False
+    elif choice == "eat":
+        print("You eat the cake. 🍓 Strawberry filling! 🍓")
+        game.cake = False
 
 
 def outside(game):
