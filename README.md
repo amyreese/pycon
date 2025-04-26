@@ -1,5 +1,13 @@
 # Amethyst's Python Talks and Examples
 
+## Or Else! An exploration of obscure control flow
+
+As seen at [North Bay Python 2025](https://2025.northbaypython.org):
+
+![Title slide](https://raw.githubusercontent.com/amyreese/pycon/main/thumbnails/or-else.png)
+
+* [Slides (with notes)](https://raw.githubusercontent.com/amyreese/pycon/main/slides/or-else-nbpy-2025.pdf)
+
 ## Python 3.13 is Kind of a Big Deal
 
 As seen at [Pyninsula](https://pyninsula.org/) #34,
