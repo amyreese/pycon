@@ -188,7 +188,7 @@ def kitchen(game):
 def outside(game):
     print(
         "You walk out the front door. "
-        "It's a great day to be at [bold]Pyninsula[/bold]!"
+        "It's a great day to be in [bold]Pittsburgh[/bold]!"
     )
     yield None
 
