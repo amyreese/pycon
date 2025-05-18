@@ -2,12 +2,16 @@
 
 ## Or Else! An exploration of obscure control flow
 
-As seen at [North Bay Python 2025](https://2025.northbaypython.org):
-
 [![Title slide](https://raw.githubusercontent.com/amyreese/pycon/main/thumbnails/or-else.png)](https://youtu.be/jRIkhLVGq9o)
+
+As seen at [North Bay Python 2025](https://2025.northbaypython.org):
 
 * [Video](https://youtu.be/jRIkhLVGq9o)
 * [Slides (with notes)](https://raw.githubusercontent.com/amyreese/pycon/main/slides/or-else-nbpy-2025.pdf)
+
+As seen at [PyCon US 2025](https://us.pycon.org/2025/schedule/presentation/85/):
+
+* [Slides (with notes)](https://raw.githubusercontent.com/amyreese/pycon/main/slides/or-else-pycon-2025.pdf)
 
 ## Python 3.13 is Kind of a Big Deal
 
